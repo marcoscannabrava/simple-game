@@ -1,0 +1,22 @@
+# CMake and build files
+build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Compiled output
+*.o
+*.a
+*.so
+emojigame
+*.html
+*.js
+*.wasm
+*.wasm.map
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*~
