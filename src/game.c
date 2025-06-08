@@ -5,7 +5,7 @@ void game_init(GameState *game) {
     // Place player in the center of the screen
     game->player_position.x = (float)GetScreenWidth() / 2.0f;
     game->player_position.y = (float)GetScreenHeight() / 2.0f;
-    game->player_emoji = "🚀"; // A nice rocket emoji
+    game->player_emoji = "😁"; // A nice rocket emoji
 }
 
 void game_update(GameState *game, const InputState *input) {
@@ -27,10 +27,8 @@ void game_update(GameState *game, const InputState *input) {
 }
 
 void game_draw(const GameState *game, Renderer *renderer) {
-    // The font size for the emoji.
     const int font_size = 40;
     
-    // We need to calculate the text width to center it properly.
     int text_width = MeasureText(game->player_emoji, font_size);
     
     Vector2 centered_position = {

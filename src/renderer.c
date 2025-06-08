@@ -14,7 +14,6 @@ void renderer_begin_drawing(void) {
 }
 
 void renderer_draw_emoji(const char* emoji, Vector2 position, int fontSize) {
-    // Raylib's DrawText can render UTF-8 emojis directly.
     DrawText(emoji, (int)position.x, (int)position.y, fontSize, BLACK);
 }
 
