@@ -32,5 +32,5 @@ void engine_run(Engine *engine) {
 }
 
 void engine_shutdown(Engine *engine) {
-    renderer_shutdown(&engine->renderer);
+    renderer_shutdown();
 }
