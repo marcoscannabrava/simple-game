@@ -5,7 +5,7 @@ void game_init(GameState *game) {
     // Place player in the center of the screen
     game->player_position.x = (float)GetScreenWidth() / 2.0f;
     game->player_position.y = (float)GetScreenHeight() / 2.0f;
-    game->player_emoji = "😁"; // A nice rocket emoji
+    game->player_emoji = "O";
 }
 
 void game_update(GameState *game, const InputState *input) {
