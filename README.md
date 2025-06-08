@@ -8,54 +8,48 @@
 
 The code adheres to the principles of simplicity and modularity, with the `Engine` struct acting as a central context to avoid global state.
 
-### How to Build and Run
+# Native Build
 
-You can now compile the project using CMake and your chosen toolchain.
+## Prerequisites
+- C compiler (GCC or Clang)
+- CMake
 
-#### 1. Native Linux Build
-
-**Prerequisites:**
-*   A C compiler (like GCC or Clang)
-*   CMake
-*   Raylib installed system-wide (e.g., via your package manager `sudo apt install libraylib-dev`)
-
-**Build Steps:**
+## Build Steps
 ```bash
-# 1. Create a build directory
-mkdir emoji-game/build
-cd emoji-game/build
+# 1. install dependencies: raylib
+cd vendor/raylib/build
+cmake -DBUILD_SHARED_LIBS=ON ..
+make
+sudo make install
+sudo ldconfig
 
-# 2. Configure the project with CMake
+# 2. compile project (from the root dir)
+mkdir build
+cd build
 cmake ..
-
-# 3. Compile the game
 make
 
-# 4. Run the executable
-./emojigame 
+# 3. Run
+./emoji-game
 ```
-A window should appear where you can move the rocket emoji with your arrow keys.
 
-#### 2. WebAssembly (WASM) Build
+# 2. WebAssembly (WASM) Build
 
-**Prerequisites:**
-*   The Emscripten SDK (`emsdk`) installed and activated.
-*   Raylib installed for the Emscripten toolchain (often done via `emscripten-ports`).
+## Prerequisites
+- Emscripten SDK (`emsdk`) installed and activated (e.g. `source ./emsdk_env.sh`)
 
-**Build Steps:**
+## Build Steps
 ```bash
-# 1. Ensure your shell is configured for Emscripten (e.g., source ./emsdk_env.sh)
-# 2. Create a build directory
+# 1. compile dependencies for wasm: raylib
+cd vendor/raylib
+emcmake cmake . -B build
+
+# 2. Configure the project using the emcmake wrapper and compile
 mkdir emoji-game/build-web
 cd emoji-game/build-web
-
-# 3. Configure the project using the emcmake wrapper and enable the WASM option
 emcmake cmake .. -DWASM_BUILD=ON
-
-# 4. Compile the project
 make
 
-# 5. Run a local web server to host the files
+# 3. Run a local web server to host the files
 python3 -m http.server 8000 
 ```
-This will generate `emojigame.html`, `emojigame.js`, and `emojigame.wasm`. Open your web browser and navigate to `http://localhost:8000/emojigame.html` to see the game running.

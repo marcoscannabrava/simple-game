@@ -1,38 +1,28 @@
 cmake_minimum_required(VERSION 3.10)
 project(emoji-game LANGUAGES C)
 
-# Option for WebAssembly build
 option(WASM_BUILD "Enable WebAssembly build" OFF)
+
+# third-party libraries
+add_subdirectory(vendor/raylib)
 
 file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS "src/*.c")
 add_executable("${CMAKE_PROJECT_NAME}" ${MY_SOURCES})
 
-
-# third-party libraries
-add_subdirectory(vendor/raylib)			# renderer
-
 target_link_libraries("${CMAKE_PROJECT_NAME}" PRIVATE raylib)
 
-# WASM - Emscripten-specific settings
-# To build for WASM, run from a `build` directory:
-#   emcmake cmake .. -DWASM_BUILD=ON
-#   cmake --build .
-if(WASM_BUILD)
-    set_target_properties("${CMAKE_PROJECT_NAME}" PROPERTIES SUFFIX ".html")
-
-    # Necessary flags for web builds with Raylib
-    target_compile_options("${CMAKE_PROJECT_NAME}" PRIVATE
-        -s USE_GLFW=3
-        -s ASYNCIFY
-        -s LLD_REPORT_UNDEFINED
-    )
-    # This linker flag allows us to use a custom html template for the wasm output
-    target_link_options("${CMAKE_PROJECT_NAME}" PRIVATE
-        --shell-file ${CMAKE_CURRENT_SOURCE_DIR}/src/shell.html
-    )
-endif()
-
 target_include_directories("${CMAKE_PROJECT_NAME}" PRIVATE "include")
+
+# TODO: Wasm build broken, follow these instructions to fix it
+# https://github.com/raysan5/raylib/wiki/Working-for-Web-(HTML5)
+# install Emscripten toolchain, compile rayilb with Emscripten
+
+# Emscripten/WebAssembly build settings per Raylib documentation
+if(WASM_BUILD)
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -s USE_GLFW=3 -s ASSERTIONS=1 -s WASM=1 -s ASYNCIFY -s GL_ENABLE_GET_PROC_ADDRESS=1")
+    set(CMAKE_EXECUTABLE_SUFFIX ".html")
+    string(REPLACE "-rdynamic" "" CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "${CMAKE_SHARED_LIBRARY_LINK_C_FLAGS}")
+endif()
 
 
 # Installation (optional, but good practice)

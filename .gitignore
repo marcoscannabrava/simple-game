@@ -1,5 +1,6 @@
 # CMake and build files
 build/
+build-web/
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
