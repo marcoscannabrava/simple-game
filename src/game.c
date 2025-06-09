@@ -36,5 +36,5 @@ void game_draw(const GameState *game) {
         game->player_position.y - (float)font_size / 2.0f
     };
 
-    renderer_draw_emoji(game->player_emoji, centered_position, font_size);
+    renderer_draw_player(game->player_emoji, centered_position, font_size);
 }
