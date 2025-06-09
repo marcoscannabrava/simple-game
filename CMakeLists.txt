@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(emoji-game LANGUAGES C)
+project(simple-game LANGUAGES C)
 
 option(WASM_BUILD "Enable WebAssembly build" OFF)
 
@@ -12,6 +12,8 @@ add_executable("${CMAKE_PROJECT_NAME}" ${MY_SOURCES})
 target_link_libraries("${CMAKE_PROJECT_NAME}" PRIVATE raylib)
 
 target_include_directories("${CMAKE_PROJECT_NAME}" PRIVATE "include")
+
+target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC RESOURCES_PATH="${CMAKE_CURRENT_SOURCE_DIR}/assets/")
 
 # TODO: Wasm build broken, follow these instructions to fix it
 # https://github.com/raysan5/raylib/wiki/Working-for-Web-(HTML5)

@@ -1,6 +1,6 @@
-# Emoji Game
+# Simple Game
 
-*   **`emoji-game/`**: Root directory containing all project files.
+*   **`simple-game/`**: Root directory containing all project files.
 *   **`CMakeLists.txt`**: Modern CMake build script.
 *   **`.gitignore`**: Standard ignore file for C/CMake projects.
 *   **`include/`**: Contains all header files (`engine.h`, `renderer.h`, `input.h`, `game.h`), defining the public interface for each module.
@@ -30,7 +30,7 @@ cmake ..
 make
 
 # 3. Run
-./emoji-game
+./simple-game
 ```
 
 # 2. WebAssembly (WASM) Build
@@ -45,8 +45,8 @@ cd vendor/raylib
 emcmake cmake . -B build
 
 # 2. Configure the project using the emcmake wrapper and compile
-mkdir emoji-game/build-web
-cd emoji-game/build-web
+mkdir simple-game/build-web
+cd simple-game/build-web
 emcmake cmake .. -DWASM_BUILD=ON
 make
 

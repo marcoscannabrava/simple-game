@@ -10,7 +10,6 @@ Makefile
 *.o
 *.a
 *.so
-emojigame
 *.html
 *.js
 *.wasm

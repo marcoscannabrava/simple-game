@@ -9,8 +9,8 @@ void renderer_begin_drawing(void) {
     ClearBackground(RAYWHITE);
 }
 
-void renderer_draw_player(const char* emoji, Vector2 position, int fontSize) {
-    DrawText(emoji, (int)position.x, (int)position.y, fontSize, BLACK);
+void renderer_draw_player(const Texture2D* sprite, Vector2 position) {
+    DrawTextureV(*sprite, position, WHITE);
 }
 
 void renderer_end_drawing(void) {
