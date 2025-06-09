@@ -1,13 +1,11 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
-#include "renderer.h"
 #include "input.h"
 #include "game.h"
 
 // The Engine struct is the central context, holding all subsystems.
 typedef struct Engine {
-    Renderer renderer;
     InputState input;
     GameState game;
 } Engine;

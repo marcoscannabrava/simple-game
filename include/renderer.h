@@ -3,15 +3,8 @@
 
 #include <raylib.h>
 
-// Renderer holds the window state and provides drawing abstractions.
-typedef struct Renderer {
-    int width;
-    int height;
-    const char* title;
-} Renderer;
-
 // Initializes the window and rendering context.
-void renderer_init(Renderer *renderer, int width, int height, const char* title);
+void renderer_init(int width, int height, const char* title);
 
 // Begins a drawing frame. Clears the background.
 void renderer_begin_drawing(void);

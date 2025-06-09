@@ -1,7 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <raylib.h>
 #include "input.h"   // Game logic needs to know about input state
 #include "renderer.h" // Game logic needs to issue draw commands
 
@@ -18,6 +17,6 @@ void game_init(GameState *game);
 void game_update(GameState *game, const InputState *input);
 
 // Draws the current game state to the screen.
-void game_draw(const GameState *game, Renderer *renderer);
+void game_draw(const GameState *game);
 
 #endif // GAME_H

@@ -1,10 +1,6 @@
 #include "renderer.h"
-#include <raylib.h>
 
-void renderer_init(Renderer *renderer, int width, int height, const char* title) {
-    renderer->width = width;
-    renderer->height = height;
-    renderer->title = title;
+void renderer_init(int width, int height, const char* title) {
     InitWindow(width, height, title);
 }
 

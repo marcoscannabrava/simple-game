@@ -1,5 +1,5 @@
 #include "game.h"
-#include <raylib.h> // For GetScreenWidth/Height
+#include "renderer.h"
 
 void game_init(GameState *game) {
     // Place player in the center of the screen
@@ -26,7 +26,7 @@ void game_update(GameState *game, const InputState *input) {
     }
 }
 
-void game_draw(const GameState *game, Renderer *renderer) {
+void game_draw(const GameState *game) {
     const int font_size = 40;
     
     int text_width = MeasureText(game->player_emoji, font_size);

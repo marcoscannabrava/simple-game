@@ -1,5 +1,5 @@
 #include "input.h"
-#include <raylib.h> // For IsKeyDown
+#include "renderer.h" // Input handling for the game engine from raylib
 
 void input_poll(InputState *input) {
     input->up = IsKeyDown(KEY_UP);
