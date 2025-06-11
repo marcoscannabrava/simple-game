@@ -22,6 +22,8 @@ typedef struct {
     Texture2D sprite_back_frames[SPRITE_BACK_FRAME_COUNT];
     int current_frame;
     float frame_timer;
+   Vector2 velocity;
+   float elasticity;
 } Player;
 
 // GameState holds all data related to the game world.

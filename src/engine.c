@@ -4,7 +4,7 @@
 // Define screen dimensions and title
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 600
-#define WINDOW_TITLE "Emoji Game"
+#define WINDOW_TITLE "Simple Game"
 
 void engine_init(Engine *engine) {
     renderer_init(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
