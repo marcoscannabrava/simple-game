@@ -8,8 +8,8 @@
 #define WINDOW_TITLE "Simple Game"
 
 void engine_init(Engine *engine) {
-    renderer_init(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
-    game_init(&engine->game);
+    PlayerSize player_size = renderer_init(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
+    game_init(&engine->game, player_size);
     SetTargetFPS(60);
 }
 
