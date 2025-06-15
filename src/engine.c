@@ -1,4 +1,5 @@
 #include "engine.h"
+
 #include "renderer.h"
 
 // Define screen dimensions and title
@@ -28,6 +29,4 @@ void engine_run(Engine *engine) {
     }
 }
 
-void engine_shutdown(Engine *engine) {
-    renderer_shutdown();
-}
+void engine_shutdown(Engine *engine) { renderer_shutdown(); }
