@@ -1,8 +1,8 @@
 {
   "tasks": [
-    // CMake configure
+    // Native CMake build
     {
-      "label": "CMake Configure",
+      "label": "CMake Configure Native Build",
       "type": "shell",
       "command": "cmake",
       "args": [
@@ -15,9 +15,9 @@
       "problemMatcher": [],
       "detail": "Run cmake .. in the build folder"
     },
-    // Make build
+    // Native Make build
     {
-      "label": "Make Build",
+      "label": "Make Native Build",
       "type": "shell",
       "command": "make",
       "options": {
@@ -30,6 +30,59 @@
       "problemMatcher": ["$gcc"],
       "detail": "Run make in the build folder"
     },
+
+    // --------------------
+
+    // WASM EmCMake build
+    {
+      "label": "WASM EmCMake Configure Build",
+      "type": "shell",
+      "command": "emcmake",
+      "args": [
+        "cmake",
+        "..",
+        "-DWASM_BUILD=ON"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/build-web"
+      },
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "Run emcmake cmake .. -DWASM_BUILD=ON in the build-web folder"
+    },
+    // WASM Make build
+    {
+      "label": "WASM Make Build",
+      "type": "shell",
+      "command": "make",
+      "options": {
+        "cwd": "${workspaceFolder}/build-web"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "Run make in the build-web folder"
+    },
+
+    // --------------------
+
+    // Test WASM build - http://localhost:8000/emoji-game.html
+    {
+      "label": "Run HTTP Server",
+      "type": "shell",
+      "command": "python3 -m http.server 8000",
+      "options": {
+      "cwd": "${workspaceFolder}/build-web"
+      },
+      "group": {
+      "kind": "test",
+      "isDefault": true
+      },
+      "problemMatcher": [],
+      "detail": "Run python3 -m http.server 8000 in the build-web folder and open browser"
+    }
   ],
   "version": "2.0.0"
 }

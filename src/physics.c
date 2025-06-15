@@ -39,22 +39,6 @@ void movement(GameObject *object, const InputState *input, float delta_time) {
 
     object->position.x += object->velocity.x * delta_time;
     object->position.y += object->velocity.y * delta_time;
-
-    // refactor: move animation to rendering?
-    bool moving = input->up || input->down || input->left || input->right;
-    if (moving) {
-        object->frame_timer += delta_time;
-        float frame_duration = 0.15f;
-        int frame_count =
-            (object->direction == NORTH) ? SPRITE_BACK_FRAME_COUNT : SPRITE_FRAME_COUNT;
-        if (object->frame_timer >= frame_duration) {
-            object->frame_timer = 0.0f;
-            object->current_frame = (object->current_frame + 1) % frame_count;
-        }
-    } else {
-        object->current_frame = 0;
-        object->frame_timer = 0.0f;
-    }
 }
 
 // Handles screen boundary collisions and bounce for any game object
