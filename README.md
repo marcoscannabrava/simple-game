@@ -1,5 +1,7 @@
 # Simple Game
 
+![screenshot](./screenshot.png)
+
 *   **`simple-game/`**: Root directory containing all project files.
 *   **`CMakeLists.txt`**: Modern CMake build script.
 *   **`.gitignore`**: Standard ignore file for C/CMake projects.
