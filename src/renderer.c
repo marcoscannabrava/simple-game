@@ -6,7 +6,7 @@ void renderer_init(int width, int height, const char* title) {
 
 void renderer_begin_drawing(void) {
     BeginDrawing();
-    ClearBackground(RAYWHITE);
+    ClearBackground(DARKGRAY);
 }
 
 void renderer_draw_player(const Texture2D* sprite, Vector2 position) {
