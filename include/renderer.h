@@ -6,6 +6,9 @@
 #define SPRITE_FRAME_COUNT 3
 #define SPRITE_BACK_FRAME_COUNT 2
 
+// TODO: this is dependent on the placement of the binary and does not work in the Web, how to fix this?
+#define RESOURCES_PATH "../build/assets/"
+
 typedef enum {
     NORTH,
     SOUTH,
