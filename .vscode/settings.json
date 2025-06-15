@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "engine.h": "c",
+    "game.h": "c",
+    "input.h": "c",
+    "renderer.h": "c"
+  },
+  "search.exclude": {
+    "vendor": true
+  }
+}

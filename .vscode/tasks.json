@@ -1,0 +1,35 @@
+{
+  "tasks": [
+    // CMake configure
+    {
+      "label": "CMake Configure",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        ".."
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/build"
+      },
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "Run cmake .. in the build folder"
+    },
+    // Make build
+    {
+      "label": "Make Build",
+      "type": "shell",
+      "command": "make",
+      "options": {
+        "cwd": "${workspaceFolder}/build"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "Run make in the build folder"
+    },
+  ],
+  "version": "2.0.0"
+}

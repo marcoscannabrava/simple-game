@@ -20,7 +20,7 @@ void game_init(GameState *game) {
     game->player.frame_timer = 0.0f;
     game->player.direction = SOUTH;
     game->player.velocity = (Vector2){0.0f, 0.0f};
-    game->player.elasticity = 0.5f;
+    game->player.elasticity = 0.75f;
 }
 
 void game_update(GameState *game, const InputState *input) {

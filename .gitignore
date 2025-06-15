@@ -16,7 +16,6 @@ Makefile
 *.wasm.map
 
 # IDE and editor files
-.vscode/
 .idea/
 *.swp
 *~
