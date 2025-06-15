@@ -1,5 +1,7 @@
 # Simple Game
 
+As a space invader you can explore a grey medium with funny physics. This project is meant to explore game dev, C, and cross-platform build systems.
+
 ![screenshot](./screenshot.png)
 
 *   **`simple-game/`**: Root directory containing all project files.
@@ -35,7 +37,7 @@ make
 ./simple-game
 ```
 
-# 2. WebAssembly (WASM) Build
+# WebAssembly (WASM) Build
 
 ## Prerequisites
 - Emscripten SDK (`emsdk`) installed and activated (e.g. `source ./emsdk_env.sh`)
