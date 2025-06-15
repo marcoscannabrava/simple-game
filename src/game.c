@@ -28,9 +28,7 @@ void game_init(GameState *game) {
 
 void game_update(GameState *game, const InputState *input) {
     float delta_time = GetFrameTime();
-
-    movement(&game->player, input, delta_time);
-    collisions(&game->player, GetScreenWidth(), GetScreenHeight());
+    physics_update(&game->player, input, delta_time, GetScreenWidth(), GetScreenHeight());
 }
 
 void game_draw(const GameState *game) {

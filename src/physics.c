@@ -40,8 +40,6 @@ void movement(GameObject *object, const InputState *input, float delta_time) {
     object->position.x += object->velocity.x * delta_time;
     object->position.y += object->velocity.y * delta_time;
 
-    gravity(object, delta_time);  // Apply gravity only if no input is given
-
     // refactor: move animation to rendering?
     bool moving = input->up || input->down || input->left || input->right;
     if (moving) {
@@ -84,4 +82,10 @@ void collisions(GameObject *object, int screen_width, int screen_height) {
         object->position.x = screen_width - object->width;
         if (object->velocity.x > 0) object->velocity.x = 0;
     }
+}
+
+void physics_update(GameObject *object, const InputState *input, float delta_time, int screen_width, int screen_height) {
+    movement(object, input, delta_time);    
+    gravity(object, delta_time);
+    collisions(object, screen_width, screen_height);
 }
