@@ -41,7 +41,9 @@
       "args": [
         "cmake",
         "..",
-        "-DWASM_BUILD=ON"
+        "-DWASM_BUILD=ON",
+        "-DCMAKE_TOOLCHAIN_FILE=${env:HOME}/apps/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake", // change path to emsdk installation!
+        "-DPLATFORM=Web"
       ],
       "options": {
         "cwd": "${workspaceFolder}/build-web"
